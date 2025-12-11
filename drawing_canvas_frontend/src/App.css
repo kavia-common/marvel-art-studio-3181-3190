@@ -29,6 +29,214 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Marvel Header */
+.marvel-header {
+  font-family: 'Oswald', Impact, 'Arial Black', sans-serif;
+  user-select: none;
+}
+
+/* Toolbar Layout */
+.toolbar-container {
+  min-width: 190px;
+  width: 210px;
+  max-width: 35vw;
+  margin-top: 6.6rem;
+  margin-left: 0.4rem;
+  background: #fff;
+  border-radius: 1.12rem;
+  box-shadow: 0 1.2px 10px 0 #06b6d41b, 0 0.5px 2.5px #3b82f620;
+  border: 2.7px solid #3b82f6;
+  padding: 1.1rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 10;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.tool-group {
+  margin-bottom: 0.2rem;
+}
+
+.palette-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.36rem;
+  margin: 0.24rem 0;
+  align-items: center;
+}
+
+.palette-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 0.4rem;
+  border: 2px solid #d1d5db;
+  margin-right: 2px;
+  outline: none;
+  cursor: pointer;
+  transition: border .2s, box-shadow .2s;
+}
+.palette-swatch.selected, .palette-swatch:active, .palette-swatch:focus {
+  border: 2.5px solid #111827;
+  box-shadow: 0 0 0 2px #3b82f650;
+}
+.tool-label {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.015em;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 0.19rem;
+  text-shadow: 0 1px 0 #f9fafb, 0 1px 6px #06b6d416;
+}
+.tool-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+}
+.tool-btn {
+  background: #f9fafb;
+  border: 2px solid #06b6d4;
+  border-radius: 0.6rem;
+  margin-right: 0.16rem;
+  padding: 0.31rem 0.4rem 0.26rem;
+  min-width: 44px;
+  min-height: 39px;
+  cursor: pointer;
+  color: #3b82f6;
+  font-weight: 900;
+  font-size: 1.12rem;
+  transition: background 0.1s,border 0.16s,box-shadow 0.16s;
+  outline: 0;
+}
+.tool-btn.active, .tool-btn:focus, .tool-btn:hover {
+  background: #e0f2fe;
+  box-shadow: 0 0 0 2px #3b82f650;
+  border: 2.3px solid #3b82f6;
+}
+.tool-btn:last-child {
+  margin-right: 0;
+}
+.brush-size-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.32rem;
+}
+input[type="range"] {
+  width: 90px;
+  margin: 0 0.6rem 0 0;
+  vertical-align: middle;
+}
+
+/* Canvas & Superhero Frame */
+.canvas-frame {
+  position: relative;
+  background: #e0e7ef;
+  border-radius: 1.6rem;
+  box-shadow: 0 3px 16px 0 rgba(59,130,246,0.16), 0 0.5px 2.5px #06b6d440;
+  border: 6px solid #3b82f6;
+  margin-left: 2.4rem;
+  margin-right: 1.2rem;
+  padding: 0.38rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 250px;
+  min-height: 220px;
+}
+.canvas-frame canvas {
+  background: #f9fafb;
+  border-radius: 1.2rem;
+  box-shadow: 0 1px 8px rgba(6,182,212, 0.09), 0 0.5px 1px #11182710;
+  outline: 3.5px double #06b6d4;
+  display: block;
+  max-width: 94vw;
+  max-height: 72vh;
+}
+
+/* Superhero frame corners (accents)*/
+.frame-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 46% 46% 18% 60%;
+  box-shadow: 0 1.5px 6px #3b82f670;
+  z-index: 2;
+}
+.frame-corner:nth-child(2) { /* top-left */ }
+.frame-corner:nth-child(3) { /* top-right */ right: 12px; }
+.frame-corner:nth-child(4) { /* bottom-left */ bottom: 4px; }
+.frame-corner:nth-child(5) { /* bottom-right */ right: 12px; bottom: 4px; }
+
+/* Footer Shortcuts */
+.marvel-shortcuts-footer {
+  font-family: 'Oswald', Impact, 'Arial Black', sans-serif;
+  letter-spacing: 0.035em;
+  font-size: 1.01rem;
+  color: #64748b;
+  background: #ffffffe3;
+  border-top: 1.5px solid #06b6d4;
+  padding-bottom: 1.2rem;
+}
+
+/* Miscellaneous / Responsive */
+@media (max-width: 900px) {
+  .toolbar-container {
+    min-width: 140px;
+    padding: 0.55rem 0.2rem 0.75rem 0.7rem;
+  }
+  .canvas-frame {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+}
+@media (max-width: 759px) {
+  .toolbar-container {
+    display: flex;
+    flex-direction: row;
+    min-width: unset;
+    width: 96vw;
+    max-width: 98vw;
+    border-radius: 1.0rem;
+    justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5.2rem;
+    padding: 0.4rem 0.15rem 0.4rem 0.5rem;
+  }
+  .canvas-frame {
+    width: 99vw;
+    min-width: 0;
+    padding: 0.18rem;
+  }
+}
+@media (max-width: 590px) {
+  .toolbar {
+    flex-direction: row;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .tool-group {
+    margin-bottom: 0.14rem;
+    margin-right: 0.32rem;
+  }
+  .marvel-shortcuts-footer {
+    font-size: .95rem;
+  }
+}
+
+/* Hide scrollbars for main app */
+.App, .marvel-app-container {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f650 #f9fafb;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
